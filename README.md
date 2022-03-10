@@ -9,8 +9,12 @@ Rellis-3D dataset (https://github.com/unmannedlab/RELLIS-3D).
 
 ## Setup directories
 ```bash
-bash setup_data_directory.sh KITTI # KITTI dataset
-bash setup_data_directory.sh Rellis-3D # Rellis-3D dataset
+bash setup_directories.sh
+```
+Enter dataset name
+```
+KITTI # KITTI dataset
+Rellis-3D # Rellis-3D dataset
 ```
 
 ## Move datasets
@@ -61,7 +65,7 @@ python preprocess/relative_pose_calculator.py
 
 ## Generate input data
 ```bash
-python gen_data.py
+python preprocess/gen_data.py
 ```
 
 ## Train and Test
@@ -86,6 +90,6 @@ The input data generation module is adapted from [Overlapnet](https://github.com
 
 ## License
 
-Copyright 2020, 2022 Donghwi Jung, Jae-Kyung Cho, Younghwa Jung, Soohyun Shin, Seong-Woo Kim, Autonomous Robot Intelligence Lab, Seoul National University.
+Copyright 2022, Donghwi Jung, Jae-Kyung Cho, Younghwa Jung, Soohyun Shin, Seong-Woo Kim, Autonomous Robot Intelligence Lab, Seoul National University.
 
 This project is free software made available under the MIT License. For details see the LICENSE file.

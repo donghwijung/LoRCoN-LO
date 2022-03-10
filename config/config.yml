@@ -25,8 +25,8 @@ cp_folder: "checkpoints"
 checkpoint_path: "checkpoint_kitti.pt"
 # checkpoint_path: "Rellis-3D/0000/cp-0500.pt"
 
-from_checkpoint: False # If you downloaded or trained the model, set it as True.
-is_same_dataset: True # For transfer learning to another dataset, set the value as False. Otherwise set it as True.
+from_checkpoint: False # Set to True to train the model on checkpoints.
+is_same_dataset: True # For transfer learning to another dataset, set the value to False. Otherwise, set to True.
 
 proj_H: 64
 proj_W: 900

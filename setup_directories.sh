@@ -17,3 +17,6 @@ done
 for SEQ in ${SEQS[@]}; do
     `mkdir -p data/$dataset/preprocessed_data/$SEQ`
 done
+`mkdir checkpoints`
+`mkdir result`
+`mkdir runs`

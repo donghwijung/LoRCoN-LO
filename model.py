@@ -25,13 +25,6 @@ class LoRCoNLO(nn.Module):
                     bidirectional=True).to("cuda:0")
         self.rnn_drop_out = nn.Dropout(0.4)
         
-        # self.dropout1 = nn.Dropout(0.1)
-        # self.dropout2 = nn.Dropout(0.1)
-        # self.fc1 = nn.Linear(2048, 512).to("cuda:1")
-        # self.fc2 = nn.Linear(512, 128).to("cuda:1")
-        # self.fc3 = nn.Linear(128, 64).to("cuda:1")
-        # self.fc4 = nn.Linear(64, 16).to("cuda:1")
-        # self.fc5 = nn.Linear(16, 6).to("cuda:1")
         self.fc1 = nn.Linear(2048, 6).to("cuda:1")
         
         self.maxpool = nn.MaxPool2d(kernel_size=3, stride=(1, 2), padding=(1, 0))
@@ -99,18 +92,6 @@ class LoRCoNLO(nn.Module):
     def fc_part(self, x):
         x = F.leaky_relu(x, 0.2)
         x = self.fc1(x)
-        # x = F.leaky_relu(x, 0.2)
-        # x = self.fc1(x)
-        # x = F.leaky_relu(x, 0.2)
-        # x = self.fc2(x)
-        # x = F.leaky_relu(x, 0.2)
-        # x = self.dropout1(x)
-        # x = self.fc3(x)
-        # x = F.leaky_relu(x, 0.2)
-        # x = self.dropout2(x)
-        # x = self.fc4(x)
-        # x = F.leaky_relu(x, 0.2)
-        # x = self.fc5(x)
         return x
     
     def weight_parameters(self):

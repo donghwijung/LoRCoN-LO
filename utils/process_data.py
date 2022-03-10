@@ -60,13 +60,13 @@ class LoRCoNLODataset(Dataset):
         current_npy_filename = image_pre_path_args[1]
         current_npy_id = int(image_pre_path_args[1].split(".")[0])
         current_seq_size = self.seq_sizes[current_seq]
-        images = np.zeros((self.rnn_size, 10, self.height, self.width), dtype=np.float64)
+        images = np.zeros((self.rnn_size, 10, self.height, self.width), dtype=np.float32)
         labels = np.zeros((self.rnn_size, 6), dtype=np.float64)
         
         for i in range(self.rnn_size):
             current_npy_filename = "{:06d}".format(current_npy_id + i) + ".npy"
             nxt_npy_filename = "{:06d}".format(current_npy_id + i + 1) + ".npy"
-            images_wrapper = np.zeros((10, self.height, self.width), dtype=np.float64)
+            images_wrapper = np.zeros((10, self.height, self.width), dtype=np.float32)
             
             names_list = [self.depth_name, self.intensity_name, self.normal_name]
             for idx, n in enumerate(names_list):
@@ -75,7 +75,7 @@ class LoRCoNLODataset(Dataset):
                 image_pre_path = os.path.join(image_pre_path, current_npy_filename)
 
                 image_pre = np.load(image_pre_path)
-                image_pre = image_pre.astype("float64")
+                image_pre = image_pre.astype("float32")
                 if idx == len(names_list) - 1:
                     image_pre = image_pre.transpose((2, 0, 1))
 
@@ -85,24 +85,22 @@ class LoRCoNLODataset(Dataset):
 
                 try:
                     image_nxt = np.load(image_nxt_path)
-                    image_nxt = image_nxt.astype("float64")
+                    image_nxt = image_nxt.astype("float32")
                     if idx == len(names_list) - 1:
                         image_nxt = image_nxt.transpose((2, 0, 1))
 
                     if idx < 2:
                         image_pre /= 255.0
                         image_nxt /= 255.0
-                        # diff_image = ((image_nxt - image_pre) + 255.0) / (255.0 * 2.0) # normalize from 0 to 1
                     else:
                         image_pre = (image_pre + 1.0) / 2.0
                         image_nxt = (image_nxt + 1.0) / 2.0
-                        # diff_image = ((image_nxt - image_pre) + 2.0) / (2.0 * 2.0) # normalize from 0 to 1
 
                 except FileNotFoundError:
                     print(idx, start_id, image_nxt_path, current_npy_id, i)
 
-                image_pre.dtype = np.float64
-                image_nxt.dtype = np.float64
+                image_pre.dtype = np.float32
+                image_nxt.dtype = np.float32
                 if idx < 2: # depth, intensity
                     images_wrapper[idx] = image_pre
                     images_wrapper[idx+self.dni_size] = image_nxt

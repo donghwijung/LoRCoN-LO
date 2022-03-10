@@ -40,6 +40,7 @@ if __name__ == "__main__":
                             rot_mat_pre_inv = np.linalg.inv(rot_mat_pre)
                             rot_mat_pre_inv.dtype = np.float64
                             relative_transform = np.dot(rot_mat_pre_inv, rot_mat_nxt)
+                            relative_transform.dtype = np.float64
                             (x, y, z) = (relative_transform[0,3], relative_transform[1,3], relative_transform[2,3])
                             (roll, pitch, yaw) = rot_mat_to_euler(relative_transform[:3,:3])
 

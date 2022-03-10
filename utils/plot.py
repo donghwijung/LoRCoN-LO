@@ -12,12 +12,12 @@ import common
 def plot_gt(Y_origin_data, pose_folder, preprocessed_folder, data_seqs, seq_sizes, dim="2d", save_graph=True, dataset="KITTI"):
     start_idx = 0
     end_idx = 0
-    additional_row = np.array([0, 0, 0, 1], dtype=np.float32)
+    additional_row = np.array([0, 0, 0, 1], dtype=np.float64)
     for seq in data_seqs:
         end_idx += seq_sizes[seq]
-        origin_poses = np.zeros((Y_origin_data[start_idx:end_idx].shape[0], 4,4),dtype=np.float32)
+        origin_poses = np.zeros((Y_origin_data[start_idx:end_idx].shape[0], 4,4),dtype=np.float64)
         for idx, row in enumerate(Y_origin_data[start_idx:end_idx]):
-            new_pose = np.array(list(map(float, row.strip().split(" "))), dtype=np.float32)
+            new_pose = np.array(list(map(float, row.strip().split(" "))), dtype=np.float64)
             new_pose = np.concatenate((new_pose, additional_row))
             new_pose = new_pose.reshape(4,4)
             origin_poses[idx] = new_pose
@@ -39,13 +39,13 @@ def plot_gt(Y_origin_data, pose_folder, preprocessed_folder, data_seqs, seq_size
 def plot_results(Y_origin_data, Y_estimated_data, data_seqs, rnn_size, seq_sizes, dim="2d", save_graph=True, dataset="KITTI"):        
     start_idx = 0
     end_idx = 0
-    additional_row = np.array([0, 0, 0, 1], dtype=np.float32)
+    additional_row = np.array([0, 0, 0, 1], dtype=np.float64)
     for i, seq in enumerate(data_seqs):
         end_idx += seq_sizes[seq]
-        poses = np.zeros((Y_origin_data[start_idx:end_idx].shape[0], 4,4),dtype=np.float32)
+        poses = np.zeros((Y_origin_data[start_idx:end_idx].shape[0], 4,4),dtype=np.float64)
 
         for idx in range(rnn_size):
-            current_pose = np.array(list(map(float, Y_origin_data[start_idx+idx].strip().split(" "))), dtype=np.float32)
+            current_pose = np.array(list(map(float, Y_origin_data[start_idx+idx].strip().split(" "))), dtype=np.float64)
             current_pose = np.concatenate((current_pose, additional_row))
             current_pose = current_pose.reshape(4,4)
             poses[idx] = current_pose
