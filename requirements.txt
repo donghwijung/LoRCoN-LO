@@ -1,0 +1,6 @@
+matplotlib==3.5.1
+numpy==1.22.2
+PyYAML==6.0
+tensorboard==2.8.0
+torch==1.10.2
+tqdm==4.63.0

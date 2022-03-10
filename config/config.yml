@@ -1,0 +1,54 @@
+dataset: "KITTI"
+pose_folder: "data/KITTI/pose"
+relative_pose_folder: "data/KITTI/relative_pose"
+scan_folder: "data/KITTI/scan"
+calib_folder: "data/KITTI/calib"
+preprocessed_folder: "data/KITTI/preprocessed_data"
+data_seqs: "00,01,02,03,04,05,06,07,08,09,10"
+test_seqs: "09,10"
+fov_up: 3.0
+fov_down: -25.0
+
+# dataset: "Rellis-3D"
+# pose_folder: "data/Rellis-3D/pose"
+# relative_pose_folder: "data/Rellis-3D/relative_pose"
+# scan_folder: "data/Rellis-3D/scan"
+# calib_folder: "data/Rellis-3D/calib"
+# preprocessed_folder: "data/Rellis-3D/preprocessed_data"
+# data_seqs: "00,01,02,03,04"
+# test_seqs: "04"
+# fov_up: 22.5
+# fov_down: -22.5
+
+log_folder: "runs"
+cp_folder: "checkpoints"
+checkpoint_path: "checkpoint_kitti.pt"
+# checkpoint_path: "Rellis-3D/0000/cp-0500.pt"
+
+from_checkpoint: False # If you downloaded or trained the model, set it as True.
+is_same_dataset: True # For transfer learning to another dataset, set the value as False. Otherwise set it as True.
+
+proj_H: 64
+proj_W: 900
+max_range: 50
+
+image_width: 900
+image_height: 64
+
+batch_size: 32
+epochs: 500
+
+checkpoint_epoch: 10
+log_epoch: 5
+
+num_workers: 32
+
+rnn_size: 4
+
+cuda_visible_devices: "2,3" # about 15 - 20Gb GPU memory is necessary
+
+depth_name: "depth"
+normal_name: "normal"
+intensity_name: "intensity"
+dni_size: 5
+normal_size: 3
