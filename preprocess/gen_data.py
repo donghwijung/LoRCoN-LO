@@ -5,10 +5,10 @@ import gen_data_utils
 
 from tqdm import tqdm
 
-def gen_data(scan_folder, dst_folder, fov_up, fov_down, proj_H, proj_W, max_range):
+def gen_data(scan_folder, dst_folder, dataset, fov_up, fov_down, proj_H, proj_W, max_range):
   gen_data_utils.gen_depth_data(scan_folder, dst_folder, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)[0]
   gen_data_utils.gen_normal_data(scan_folder, dst_folder, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)[0]
-  gen_data_utils.gen_intensity_data(scan_folder, dst_folder, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)[0]
+  gen_data_utils.gen_intensity_data(scan_folder, dst_folder, dataset=dataset, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)[0]
 
 if __name__ == "__main__":
     # load config file
@@ -35,5 +35,7 @@ if __name__ == "__main__":
         proj_W = config["proj_W"]
         max_range = config["max_range"]
         
+        dataset = config["dataset"]
+        
         # start the demo1 to generate different types of data from LiDAR scan
-        gen_data(scan_folder, dst_folder, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)
+        gen_data(scan_folder, dst_folder, dataset, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)

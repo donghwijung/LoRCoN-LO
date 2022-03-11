@@ -177,7 +177,7 @@ def gen_depth_data(scan_folder, dst_folder, normalize=False, fov_up=3.0, fov_dow
 
     return depths
 
-def gen_intensity_data(scan_folder, dst_folder, fov_up=3.0, fov_down=-25.0, proj_H=64, proj_W=900, max_range=50):
+def gen_intensity_data(scan_folder, dst_folder, dataset, fov_up=3.0, fov_down=-25.0, proj_H=64, proj_W=900, max_range=50):
     """ Generate projected intensity data in the shape of (64, 900, 1).
         The input raw data are in the shape of (Num_points, 1).
     """
@@ -203,7 +203,9 @@ def gen_intensity_data(scan_folder, dst_folder, fov_up=3.0, fov_down=-25.0, proj
         else:
             current_vertex = current_vertex.reshape((-1, 4))
         
-        current_vertex[:,-1] *= 255 / 5.0
+        if dataset == "Rellis-3D":
+            print("Rellis-3D")
+            current_vertex[:,-1] *= 255 / 5.0
 
         # generate intensity image from point cloud
         _, _, proj_intensity, _ = range_projection(current_vertex, fov_up=fov_up, fov_down=fov_down, proj_H=proj_H, proj_W=proj_W, max_range=max_range)

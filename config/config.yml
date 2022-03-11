@@ -35,20 +35,20 @@ max_range: 50
 image_width: 900
 image_height: 64
 
-batch_size: 32
+batch_size: 32 # resize depending on your hardware spec
 epochs: 500
 
 checkpoint_epoch: 10
 log_epoch: 5
 
-num_workers: 32
+num_workers: 32 # resize depending on your hardware spec
 
 rnn_size: 4
 
-cuda_visible_devices: "2,3" # about 15 - 20Gb GPU memory is necessary
+cuda_visible_devices: "0,1" # about 15Gb GPU memory is necessary
 
 depth_name: "depth"
 normal_name: "normal"
 intensity_name: "intensity"
-dni_size: 5
-normal_size: 3
+dni_size: 5 # number of channels
+normal_size: 3 # number of channels
