@@ -19,25 +19,25 @@ Rellis-3D # Rellis-3D dataset
 
 ## Move datasets
 ### KITTI
-Move calib (from 00 to 10)
+Move calib files (from 00 to 10)
 ```bash
 mv data_odometry_calib/dataset/sequences/00/calib.txt data/KITTI/calib/00.txt
 ```
-Move pose (from 00 to 10)
+Move pose files (from 00 to 10)
 ```bash
 mv data_odometry_poses/dataset/poses/00.txt data/KITTI/pose/00.txt
 ```
-Move scan (from 00 to 10)
+Move scan files (from 00 to 10)
 ```bash
 mv data_odometry_velodyne/dataset/sequences/00/velodyne data/KITTI/scan/00/
 ```
 
 ### Rellis-3D
-Move pose (from 00 to 04)
+Move pose files (from 00 to 04)
 ```bash
 mv Rellis_3D_lidar_poses_20210614/Rellis_3D/000000/poses.txt data/Rellis-3D/pose/00.txt
 ```
-Move scan (from 00 to 04)
+Move scan files (from 00 to 04)
 ```bash
 mv Rellis_3D_os1_cloud_node_kitti_bin/Rellis_3D/000000/os1_cloud_node_kitti_bin data/Rellis-3D/scan/00/
 ```
