@@ -1,5 +1,5 @@
 # <img src="https://user-images.githubusercontent.com/73815549/157867543-bc994b16-5dda-4e30-bcff-55c522c91f50.png" width=75/> LoRCoN-LO: Long-term Recurrent Convolutional Network-based LiDAR Odometry
-This paper was submitted to IROS 2022. [[youtube]](https://youtu.be/_Ld58Rn_y-s)
+Video [[youtube]](https://youtu.be/_Ld58Rn_y-s)
 ## Download datasets
 KITTI dataset (http://www.cvlibs.net/datasets/kitti/eval_odometry.php).
 - velodyne laser data, calibration files, ground truth poses
