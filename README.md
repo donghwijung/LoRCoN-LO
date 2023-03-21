@@ -85,6 +85,18 @@ Rellis-3D model was trained with 00 to 03 sequences.
 
 When downloading and running the model, please modify the checkpoint related code in `confg/config.yaml`.
 
+## Paper
+```
+@inproceedings{jung2023lorcon,
+  title={LoRCoN-LO: Long-term Recurrent Convolutional Network-based LiDAR Odometry},
+  author={Jung, Donghwi and Cho, Jae-Kyung and Jung, Younghwa and Shin, Soohyun and Kim, Seong-Woo},
+  booktitle={2023 International Conference on Electronics, Information, and Communication (ICEIC)},
+  pages={1--4},
+  year={2023},
+  organization={IEEE}
+}
+```
+
 ## Acknowledgement
 The input data generation module is adapted from [Overlapnet](https://github.com/PRBonn/OverlapNet).
 
