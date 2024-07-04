@@ -77,11 +77,11 @@ python test.py
 ## Pre-trained models
 KITTI model wass trained with 00 to 08 sequences.
 
-- [Download](https://mysnu-my.sharepoint.com/:u:/g/personal/donghwijung_seoul_ac_kr/EbqmbaFUjVVPvYDUpvbhkTYBg4g9JmgIImRW-sq1B3oRRQ?e=bZIna6)
+- [Download](https://drive.google.com/file/d/1pw8I5LrH5BI5_Oo8G7rhdiXX-vJlauIi/view?usp=sharing)
 
 Rellis-3D model was trained with 00 to 03 sequences.
 
-- [Download](https://mysnu-my.sharepoint.com/:u:/g/personal/donghwijung_seoul_ac_kr/ETm4-EVG4jhCndW3U38fapgB__2eNsQwi8umnpyenXFN8w?e=vAt8bE)
+- [Download](https://drive.google.com/file/d/1edg5MsBRWxS7Q-slpvR3zbS8mIroLTUB/view?usp=sharing)
 
 When downloading and running the model, please modify the checkpoint related code in `confg/config.yaml`.
 
